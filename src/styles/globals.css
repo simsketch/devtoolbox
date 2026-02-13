@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+:root {
+  /* Light mode — Liquid Glass Light */
+  --bg-primary: #f0f0f5;
+  --bg-secondary: #e8e8f0;
+  --bg-tertiary: #dddde8;
+
+  --text-primary: #1a1a2e;
+  --text-secondary: #555570;
+  --text-tertiary: #8888a0;
+
+  --border-primary: rgba(0, 0, 0, 0.08);
+  --border-secondary: rgba(0, 0, 0, 0.05);
+
+  --accent: #007AFF;
+  --accent-hover: #0051d5;
+
+  --sidebar-bg: rgba(255, 255, 255, 0.45);
+  --sidebar-item-hover: rgba(0, 0, 0, 0.04);
+  --sidebar-item-active: rgba(0, 122, 255, 0.15);
+  --sidebar-item-active-border: #007AFF;
+
+  --selection-bg: rgba(0, 122, 255, 0.2);
+
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-highlight: rgba(255, 255, 255, 0.8);
+  --glass-shadow: rgba(0, 0, 0, 0.06);
+  --glass-blur: 24px;
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.25);
+}
+
+.dark {
+  /* Dark mode — Liquid Glass Dark */
+  --bg-primary: #0a0a14;
+  --bg-secondary: #0e0e1a;
+  --bg-tertiary: #16162a;
+
+  --text-primary: #e8eaf6;
+  --text-secondary: #9a9cba;
+  --text-tertiary: #5c5e7a;
+
+  --border-primary: rgba(255, 255, 255, 0.08);
+  --border-secondary: rgba(255, 255, 255, 0.04);
+
+  --accent: #6cb4ff;
+  --accent-hover: #9eceff;
+
+  --sidebar-bg: rgba(255, 255, 255, 0.04);
+  --sidebar-item-hover: rgba(255, 255, 255, 0.05);
+  --sidebar-item-active: rgba(108, 180, 255, 0.15);
+  --sidebar-item-active-border: #6cb4ff;
+
+  --selection-bg: rgba(108, 180, 255, 0.2);
+
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.12);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
+  --glass-blur: 32px;
+  --glass-inner-glow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+
+  --editor-bg: rgba(0, 0, 0, 0.3);
+  --editor-gutter: rgba(0, 0, 0, 0.2);
+
+  --toolbar-bg: rgba(255, 255, 255, 0.03);
+  --toolbar-border: rgba(255, 255, 255, 0.06);
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg-primary: #0a0a14;
+    --bg-secondary: #0e0e1a;
+    --bg-tertiary: #16162a;
+
+    --text-primary: #e8eaf6;
+    --text-secondary: #9a9cba;
+    --text-tertiary: #5c5e7a;
+
+    --border-primary: rgba(255, 255, 255, 0.08);
+    --border-secondary: rgba(255, 255, 255, 0.04);
+
+    --accent: #6cb4ff;
+    --accent-hover: #9eceff;
+
+    --sidebar-bg: rgba(255, 255, 255, 0.04);
+    --sidebar-item-hover: rgba(255, 255, 255, 0.05);
+    --sidebar-item-active: rgba(108, 180, 255, 0.15);
+    --sidebar-item-active-border: #6cb4ff;
+
+    --selection-bg: rgba(108, 180, 255, 0.2);
+
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(255, 255, 255, 0.12);
+    --glass-shadow: rgba(0, 0, 0, 0.4);
+    --glass-blur: 32px;
+    --glass-inner-glow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+
+    --editor-bg: rgba(0, 0, 0, 0.3);
+    --editor-gutter: rgba(0, 0, 0, 0.2);
+
+    --toolbar-bg: rgba(255, 255, 255, 0.03);
+    --toolbar-border: rgba(255, 255, 255, 0.06);
+
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.18);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'ss01', 'cv01';
+}
+
+code,
+pre,
+.font-mono {
+  font-family: 'SF Mono', 'Monaco', 'Menlo', 'Consolas', 'Courier New', monospace;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+[data-tauri-drag-region] {
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+button,
+input,
+select,
+textarea {
+  -webkit-app-region: no-drag;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ─── Mesh Gradient Background ─── */
+.mesh-gradient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #08080f;
+}
+
+.mesh-gradient-bg::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse 600px 500px at 15% 20%, rgba(88, 40, 180, 0.35), transparent),
+    radial-gradient(ellipse 500px 400px at 75% 15%, rgba(30, 80, 200, 0.3), transparent),
+    radial-gradient(ellipse 400px 600px at 85% 70%, rgba(60, 20, 140, 0.25), transparent),
+    radial-gradient(ellipse 500px 400px at 25% 80%, rgba(20, 60, 160, 0.2), transparent),
+    radial-gradient(ellipse 300px 300px at 50% 50%, rgba(100, 60, 200, 0.15), transparent);
+  animation: meshFloat 30s ease-in-out infinite alternate;
+}
+
+.mesh-gradient-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 350px 350px at 60% 30%, rgba(50, 120, 240, 0.12), transparent),
+    radial-gradient(ellipse 250px 400px at 30% 60%, rgba(120, 50, 200, 0.1), transparent);
+  animation: meshFloat2 25s ease-in-out infinite alternate;
+}
+
+@keyframes meshFloat {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, -1%) rotate(1deg); }
+  66% { transform: translate(-1%, 2%) rotate(-0.5deg); }
+  100% { transform: translate(1%, -1%) rotate(0.5deg); }
+}
+
+@keyframes meshFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-2%, 1%) scale(1.05); }
+  100% { transform: translate(1%, -2%) scale(0.97); }
+}
+
+/* ─── Glass Panel Base ─── */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    var(--glass-inner-glow, none),
+    0 4px 24px var(--glass-shadow),
+    0 1px 2px var(--glass-shadow);
+}
+
+.glass-panel-subtle {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Glass Button ─── */
+.glass-btn {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--text-primary);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.5px);
+}
+
+.glass-btn:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Glow Accent ─── */
+.glow-accent {
+  box-shadow:
+    0 0 20px rgba(108, 180, 255, 0.15),
+    0 0 60px rgba(108, 180, 255, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Noise Texture Overlay ─── */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}

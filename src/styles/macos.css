@@ -1,0 +1,277 @@
+/* macOS Liquid Glass — Human Interface Guidelines */
+
+:root {
+  --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Menlo', 'Consolas', 'Courier New', monospace;
+}
+
+:root {
+  --spacing-xs: 6px;
+  --spacing-sm: 10px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 28px;
+  --spacing-2xl: 40px;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --titlebar-height: 52px;
+  --traffic-light-inset: 76px;
+  --sidebar-width: 240px;
+  --statusbar-height: 28px;
+
+  --transition-fast: 180ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-medium: 300ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ─── Vibrancy / Glass Effects ─── */
+.vibrancy {
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+}
+
+.vibrancy-sidebar {
+  background: var(--sidebar-bg);
+  backdrop-filter: blur(40px) saturate(160%);
+  -webkit-backdrop-filter: blur(40px) saturate(160%);
+}
+
+/* ─── Window Controls Area ─── */
+.titlebar {
+  height: var(--titlebar-height);
+  padding-left: var(--traffic-light-inset);
+}
+
+/* ─── macOS Buttons ─── */
+.btn-macos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: var(--radius-md);
+  border: none;
+  background-color: var(--accent);
+  color: white;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.btn-macos:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-0.5px);
+}
+
+.btn-macos:active {
+  transform: translateY(0);
+}
+
+.btn-macos-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-macos-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ─── macOS Input Fields ─── */
+.input-macos {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-size: 13px;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.input-macos:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 180, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ─── macOS Textarea ─── */
+.textarea-macos {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  line-height: 1.6;
+  resize: vertical;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.textarea-macos:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 180, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ─── macOS Select ─── */
+.select-macos {
+  width: 100%;
+  padding: 8px 32px 8px 12px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-size: 13px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%239a9cba' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.select-macos:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 180, 255, 0.15);
+}
+
+/* ─── macOS Toggle Switch ─── */
+.toggle-macos {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.toggle-macos input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-macos-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition: all var(--transition-fast);
+}
+
+.toggle-macos-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 1px;
+  bottom: 1px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-macos input:checked + .toggle-macos-slider {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.toggle-macos input:checked + .toggle-macos-slider:before {
+  transform: translateX(18px);
+}
+
+/* ─── macOS Card — Glass Style ─── */
+.card-macos {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-fast);
+  box-shadow: var(--glass-inner-glow, none), 0 2px 12px var(--glass-shadow);
+}
+
+/* ─── macOS Divider ─── */
+.divider-macos {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-primary), transparent);
+  border: none;
+  margin: var(--spacing-lg) 0;
+}
+
+/* ─── Smooth Transitions (scoped to interactive elements only) ─── */
+button,
+a,
+input,
+select,
+textarea,
+.glass-btn,
+.btn-macos,
+.btn-macos-secondary,
+.input-macos,
+.textarea-macos,
+.select-macos,
+.card-macos,
+.toggle-macos-slider {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+button:active,
+input:active,
+select:active,
+textarea:active {
+  transition-duration: 0ms;
+}
+
+/* ─── Focus Ring ─── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* ─── Drop Shadows ─── */
+.shadow-macos {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-macos-lg {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dark .shadow-macos {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark .shadow-macos-lg {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+}

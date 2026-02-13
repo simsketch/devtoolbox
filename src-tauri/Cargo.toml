@@ -1,0 +1,60 @@
+[package]
+name = "devtoolbox"
+version = "0.1.0"
+description = "Developer Toolbox — 35+ developer tools in one native app"
+authors = ["simsketch"]
+edition = "2021"
+
+[lib]
+name = "devtoolbox_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["macos-private-api"] }
+tauri-plugin-opener = "2"
+tauri-plugin-clipboard-manager = "2"
+tauri-plugin-store = "2"
+tauri-plugin-window-state = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-os = "2"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+toml = "0.8"
+csv = "1"
+quick-xml = { version = "0.37", features = ["serialize"] }
+
+sha2 = "0.10"
+sha1 = "0.10"
+md-5 = "0.10"
+hmac = "0.12"
+bcrypt = "0.16"
+hex = "0.4"
+jsonwebtoken = "9"
+uuid = { version = "1", features = ["v4", "v7"] }
+base64 = "0.22"
+urlencoding = "2"
+htmlescape = "0.3"
+regex = "1"
+flate2 = "1"
+similar = "2"
+x509-parser = "0.17"
+pem = "3"
+chrono = { version = "0.4", features = ["serde"] }
+palette = "0.7"
+thiserror = "2"
+anyhow = "1"
+tokio = { version = "1", features = ["full"] }
+rand = "0.8"
+cron = "0.15"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+opt-level = "s"
